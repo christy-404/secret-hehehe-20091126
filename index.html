@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Puzzle modifications added — original template structure preserved.
+-->
+<html>
+	<head>
+		<title>THE THING...</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Puzzle additions — no template styles changed */
+
+			/* Input styling to match Dimension form style */
+			.puzzle-input {
+				width: 100%;
+				padding: 0.75em 1em;
+				background: rgba(255,255,255,0.075);
+				border: solid 1px rgba(255,255,255,0.3);
+				border-radius: 4px;
+				color: #fff;
+				font-family: inherit;
+				font-size: 0.9em;
+				letter-spacing: 0.05em;
+				outline: none;
+				margin-top: 0.5em;
+			}
+			.puzzle-input:focus {
+				border-color: rgba(255,255,255,0.6);
+				background: rgba(255,255,255,0.1);
+			}
+			.puzzle-input::placeholder {
+				color: rgba(255,255,255,0.4);
+			}
+
+			/* Message text */
+			.puzzle-msg {
+				margin-top: 1em;
+				font-size: 0.85em;
+				letter-spacing: 0.05em;
+				min-height: 1.4em;
+			}
+			.puzzle-msg.success { color: #a8e6cf; }
+			.puzzle-msg.error   { color: #ffaaa5; }
+			.puzzle-msg.info    { color: rgba(255,255,255,0.6); }
+
+			/* Name reveal display */
+			.name-reveal {
+				display: flex;
+				justify-content: center;
+				gap: 0.6em;
+				flex-wrap: wrap;
+				margin: 2em 0 1.5em;
+			}
+			.name-reveal .letter-slot {
+				font-size: 2em;
+				font-weight: 700;
+				letter-spacing: 0.05em;
+				min-width: 1em;
+				text-align: center;
+				border-bottom: 2px solid rgba(255,255,255,0.5);
+				padding-bottom: 0.1em;
+				line-height: 1.2;
+				color: #fff;
+				text-transform: uppercase;
+				transition: color 0.4s ease;
+			}
+			.name-reveal .letter-slot.hidden-slot {
+				color: rgba(255,255,255,0.25);
+			}
+
+			/* Spacing helpers */
+			.puzzle-spacer { margin-top: 1.5em; }
+			.puzzle-clue-box {
+				background: rgba(255,255,255,0.05);
+				border-left: 3px solid rgba(255,255,255,0.25);
+				padding: 1em 1.2em;
+				margin: 1.2em 0 1.5em;
+				border-radius: 0 4px 4px 0;
+				font-style: italic;
+				font-size: 0.95em;
+				line-height: 1.7;
+				color: rgba(255,255,255,0.85);
+			}
+			.puzzle-label {
+				font-size: 0.75em;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: rgba(255,255,255,0.5);
+				margin-bottom: 0.4em;
+				display: block;
+			}
+
+			/* Captcha wrapper */
+			.captcha-wrap {
+				text-align: center;
+				margin: 1em 0 1.2em;
+			}
+			.captcha-wrap img {
+				border-radius: 4px;
+				border: 1px solid rgba(255,255,255,0.15);
+				max-width: 100%;
+			}
+
+			/* Danger / reset button */
+			.btn-danger {
+				background: transparent !important;
+				border-color: rgba(255, 100, 100, 0.5) !important;
+				color: rgba(255, 150, 150, 0.9) !important;
+				margin-top: 2em;
+				font-size: 0.75em !important;
+				letter-spacing: 0.15em !important;
+			}
+			.btn-danger:hover {
+				background: rgba(255,80,80,0.1) !important;
+				border-color: rgba(255,100,100,0.8) !important;
+				color: #fff !important;
+			}
+
+			/* Already-completed notice */
+			.completed-badge {
+				display: inline-block;
+				font-size: 0.7em;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: #a8e6cf;
+				border: 1px solid rgba(168,230,207,0.4);
+				border-radius: 3px;
+				padding: 0.2em 0.6em;
+				margin-bottom: 1em;
+			}
+
+			/* Want to know section */
+			.final-reveal-area {
+				margin-top: 1.5em;
+				padding-top: 1.5em;
+				border-top: 1px solid rgba(255,255,255,0.1);
+			}
+			.full-name-reveal {
+				font-size: 2.2em;
+				font-weight: 700;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				text-align: center;
+				color: #fff;
+				margin: 1em 0;
+			}
+		/* Nav lock styles */
+		nav ul li.nav-locked a {
+			opacity: 0.3;
+			cursor: default;
+			pointer-events: none;
+		}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<div class="logo">
+					<span class="icon fa-lock"></span>
+				</div>
+				<div class="content">
+					<div class="inner">
+						<h1>Hmm..</h1>
+						<p>Sometimes its okay to share stuff like this , alle ?😝😝.</p>
+					</div>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="#begin">The thing..</a></li>
+						<li id="navLevel1"><a href="#level1">LEVEL 1</a></li>
+						<li id="navLevel2"><a href="#level2">LEVEL 2</a></li>
+						<li id="navWhoisit"><a href="#whoisit">WHO IS IT?</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- Main -->
+			<div id="main">
+
+				<!-- BEGIN / Home -->
+				<article id="begin">
+					<h2 class="major">THE THING..</h2>
+
+					<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+
+					<p>So heres the deal , i may have lied to you when i said "its not about about someone" .... but it is but someone uk well ig , ive mentioned that person's name once or twice in our convos and thats pretty much it, but just for the fun of it i made this webpage as a simple puzzle , cus why not ?. So enjoy the puzzel and at the end you'll know who it is..😜😅 .</p>
+
+					<p>HAVE FUN , PRESS PLAY TO START!!</p>
+
+					<input type="text" id="captchaInput" class="puzzle-input" placeholder="Enter code..." autocomplete="off" />
+
+					<div class="puzzle-spacer">
+						<ul class="actions">
+							<li><button class="button primary" onclick="checkCaptcha()">PLAY</button></li>
+						</ul>
+					</div>
+
+					<p id="captchaMsg" class="puzzle-msg"></p>
+				</article>
+
+				<!-- Level 1 -->
+				<article id="level1">
+					<h2 class="major">LEVEL 1</h2>
+
+					<div id="level1CompletedBadge" style="display:none;">
+						<span class="completed-badge">✓ COMPLETED</span>
+					</div>
+
+					<p>WHAT WAS THE LAST SUBJECT WE LEARNT IN ATOM?</p>
+
+					<p>Code:</p>
+					<input type="text" id="level1Input" class="puzzle-input" placeholder="Enter code..." autocomplete="off" />
+
+					<div class="puzzle-spacer">
+						<ul class="actions">
+							<li><button class="button primary" onclick="checkLevel1()">SUBMIT</button></li>
+						</ul>
+					</div>
+
+					<p id="level1Msg" class="puzzle-msg"></p>
+				</article>
+
+				<!-- Level 2 -->
+				<article id="level2">
+					<h2 class="major">LEVEL 2</h2>
+
+					<div id="level2CompletedBadge" style="display:none;">
+						<span class="completed-badge">✓ COMPLETED</span>
+					</div>
+
+					<p>WHO IS THE BALD FRAUD IN OUR TUTION CENTRE 😝😝?
+						<P2> (only kidding ofc)</P2>
+					</p>
+
+					<input type="text" id="level2Input" class="puzzle-input" placeholder="Enter code..." autocomplete="off" />
+
+					<div class="puzzle-spacer">
+						<ul class="actions">
+							<li><button class="button primary" onclick="checkLevel2()">SUBMIT</button></li>
+						</ul>
+					</div>
+
+					<p id="level2Msg" class="puzzle-msg"></p>
+				</article>
+
+				<!-- Who Is It? -->
+				<article id="whoisit">
+					<h2 class="major">WHO IS IT?</h2>
+
+					<!-- Shown when level 2 not yet done -->
+					<div id="whoisitLockedMsg" style="display:none;">
+						<p>finish the levels first bro</p>
+					</div>
+
+					<!-- Shown only after level 2 complete -->
+					<div id="whoisitRevealContent" style="display:none;">
+
+						<div class="name-reveal" id="nameReveal">
+							<!-- Populated by puzzle.js -->
+						</div>
+
+						<p id="revealHint" class="puzzle-msg info"></p>
+
+						<div class="final-reveal-area" id="finalRevealArea" style="display:none;">
+    <p id="fullNameDisplay" class="full-name-reveal" style="display:none;"></p>
+
+    <p id="finalMessage" style="display:none; text-align:center; margin-top:2em;">
+        SO YEA...😁😁, LIKE THIS AINT LIKE FULL ON LOVE OR ANYTHING BUT I REALLY FOUND HER CUTE AND I WOULD LIKE TO KNOW MORE ABOUT HER . AS SITUATIONS DIDNT ALLOW ME TO TELL YOU THIS PERSONALLY AND I DIDNT WANNA DISCUSS THIS THROUGH CHAT (I DONT WANNA LEAVE ANY DIGITAL EVIDENCE HEHE 😭😭😅😅), THIS WAS THE ONLY WAY AND PLUS IM GOING THROUGH A PHASE WHERE CODING IS A HUGE CRAZE FOR ME .. IDK IF SHE IS DATING SOMEONE OR HAS EVEN THOUGTH ABOUT ME, BUT I WANTED TO TELL YOU THIS ANYWAY ,DONT TELL THIS TO ANYONE , JUST KEEP IT BETWEEN THE TWO OF US!
+    </p>
+</div>
+
+						<div id="wantToKnowSection">
+							<ul class="actions">
+								<li><button class="button" onclick="showFinalRevealPrompt()">WANT TO KNOW?</button></li>
+							</ul>
+						</div>
+
+						<div id="finalRevealPrompt" style="display:none;">
+							<span class="puzzle-label">Enter the original access code to reveal</span>
+							<input type="text" id="finalRevealInput" class="puzzle-input" placeholder="Access code..." autocomplete="off" />
+							<div class="puzzle-spacer">
+								<ul class="actions">
+									<li><button class="button primary" onclick="checkFinalReveal()">REVEAL</button></li>
+								</ul>
+							</div>
+						</div>
+
+						<p id="finalRevealMsg" class="puzzle-msg"></p>
+
+					</div>
+
+					<div style="text-align:center; margin-top: 3em;">
+						<ul class="actions" style="justify-content:center;">
+							<li><button class="button btn-danger" onclick="confirmReset()">FORGET EVERYTHING</button></li>
+						</ul>
+					</div>
+				</article>
+
+			</div>
+			<!-- No footer -->
+
+		</div>
+
+		<!-- BG -->
+		<div id="bg"></div>
+
+		<!-- Scripts — original template scripts untouched -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/puzzle.js"></script>
+
+	</body>
+</html>
